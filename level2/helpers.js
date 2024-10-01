@@ -11,12 +11,9 @@ export const addWorkingDays = (shippingDate, deliveryPromise, saturdayDeliveries
 
     while (daysAdded < deliveryPromise) {
         date.setDate(date.getDate() + 1);
-        const dayOfWeek = date.getDay();
-
-        if (dayOfWeek === 0 || (dayOfWeek === 6 && !saturdayDeliveries)) {
-            continue;
+        if (isWorkingDay(date, saturdayDeliveries)) {
+            daysAdded++;
         }
-        daysAdded++;
     }
 
     return date;

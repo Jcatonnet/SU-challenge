@@ -1,5 +1,7 @@
 # Shipup Backend Challenge
 
+To run the files, go to the desired level folder and run "node index.js"
+
 ## Guidelines
 
 **For each level, write code that generates a `data/output.json` file from `data/input.json`.

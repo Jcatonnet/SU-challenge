@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 
 
-const calculateExpectedDelivery = (data) => {
+const calculateExpectedDeliveries = (data) => {
     const deliveries = data.packages.map(pack => {
 
         const carrier = data.carriers.find(carrier => carrier.code === pack.carrier);
@@ -30,7 +30,7 @@ const processDeliveries = async () => {
 
         const inputData = JSON.parse(jsonData);
 
-        const result = calculateExpectedDelivery(inputData);
+        const result = calculateExpectedDeliveries(inputData);
 
         const outputFilePath = path.resolve('./data/output.json');
         await fs.writeFile(outputFilePath, JSON.stringify(result, null, 2));
